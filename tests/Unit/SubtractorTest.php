@@ -9,20 +9,20 @@ use Tests\TestCase;
 
 class SubtractorTest extends TestCase
 {
-    public function test_adder_operation()
+    public function test_subtractor_operation()
     {
         $this->assertSame('minus', (new Subtractor)->operation());
     }
 
-    public function test_adder_calculates_well()
+    public function test_subtractor_calculates_well()
     {
-        $adder = new Subtractor;
-        $result = $adder->calculate(new Number(-2.5), new Number(3.5));
+        $subtractor = new Subtractor;
+        $result = $subtractor->calculate(new Number(-2.5), new Number(3.5));
 
         $this->assertSame(-6.0, $result->get());
     }
 
-    public function test_adder_returns_out_of_bound_exception()
+    public function test_subtractor_returns_out_of_bound_exception()
     {
         $this->expectException(OutOfBoundException::class);
         $this->expectExceptionMessage('-9 minus 2 exceeds the maximum allowed value of 10');
