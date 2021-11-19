@@ -8,9 +8,11 @@ class CalculatorController extends Controller
 {
     public function calculate(Request $request)
     {
+        $maxNumber = config('calculator.max_supported_value');
+
         $request->validate([
-            'number_1' => 'required|numeric',
-            'number_2' => 'required|numeric',
+            'number_1' => "required|numeric|min:-{$maxNumber}|max:{$maxNumber}",
+            'number_2' => "required|numeric|min:-{$maxNumber}|max:{$maxNumber}",
             'operation' => 'required|in:plus,minus,multiply,divide',
         ]);
 
