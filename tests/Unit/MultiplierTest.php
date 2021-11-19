@@ -9,9 +9,9 @@ use Tests\TestCase;
 
 class MultiplierTest extends TestCase
 {
-    public function test_multiplier_operation()
+    public function test_multiplier_name()
     {
-        $this->assertSame('multiply', (new Multiplier)->operation());
+        $this->assertSame('multiply', (new Multiplier)->name());
     }
 
     public function test_multiplier_calculates_well()

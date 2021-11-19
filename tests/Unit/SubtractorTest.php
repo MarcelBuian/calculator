@@ -9,9 +9,9 @@ use Tests\TestCase;
 
 class SubtractorTest extends TestCase
 {
-    public function test_subtractor_operation()
+    public function test_subtractor_name()
     {
-        $this->assertSame('minus', (new Subtractor)->operation());
+        $this->assertSame('minus', (new Subtractor)->name());
     }
 
     public function test_subtractor_calculates_well()

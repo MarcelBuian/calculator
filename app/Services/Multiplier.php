@@ -5,9 +5,9 @@ namespace App\Services;
 use App\Exceptions\OutOfBoundException;
 use App\Models\Number;
 
-class Multiplier implements Calculator
+class Multiplier implements Operation
 {
-    public function operation(): string
+    public function name(): string
     {
         return 'multiply';
     }

@@ -5,9 +5,9 @@ namespace App\Services;
 use App\Exceptions\ZeroDivisionException;
 use App\Models\Number;
 
-class Divider implements Calculator
+class Divider implements Operation
 {
-    public function operation(): string
+    public function name(): string
     {
         return 'divide';
     }

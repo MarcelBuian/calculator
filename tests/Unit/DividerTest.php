@@ -10,9 +10,9 @@ use Tests\TestCase;
 
 class DividerTest extends TestCase
 {
-    public function test_divider_operation()
+    public function test_divider_name()
     {
-        $this->assertSame('divide', (new Divider())->operation());
+        $this->assertSame('divide', (new Divider())->name());
     }
 
     public function test_divider_calculates_well()

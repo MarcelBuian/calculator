@@ -9,9 +9,9 @@ use Tests\TestCase;
 
 class AdderTest extends TestCase
 {
-    public function test_adder_operation()
+    public function test_adder_name()
     {
-        $this->assertSame('plus', (new Adder)->operation());
+        $this->assertSame('plus', (new Adder)->name());
     }
 
     public function test_adder_calculates_well()

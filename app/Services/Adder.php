@@ -5,9 +5,9 @@ namespace App\Services;
 use App\Exceptions\OutOfBoundException;
 use App\Models\Number;
 
-class Adder implements Calculator
+class Adder implements Operation
 {
-    public function operation(): string
+    public function name(): string
     {
         return 'plus';
     }

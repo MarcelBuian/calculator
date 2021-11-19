@@ -4,8 +4,8 @@ namespace App\Services;
 
 use App\Models\Number;
 
-interface Calculator
+interface Operation
 {
-    public function operation(): string;
+    public function name(): string;
     public function calculate(Number $a, Number $b): Number;
 }
