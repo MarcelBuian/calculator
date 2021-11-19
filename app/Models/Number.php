@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Exceptions\OutOfBoundException;
+use App\Services\Calculator;
 
 class Number
 {
@@ -14,7 +15,7 @@ class Number
      */
     public function __construct(float $value)
     {
-        if (abs($value) > config('calculator.max_supported_value')) {
+        if (abs($value) > Calculator::resolve()->getMaxSupportedValue()) {
             throw OutOfBoundException::fromValue($value);
         }
         $this->value = $value;

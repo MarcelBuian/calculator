@@ -18,7 +18,7 @@ class Subtractor implements Operation
     public function calculate(Number $a, Number $b): Number
     {
         $result = $a->get() - $b->get();
-        if (abs($result) > config('calculator.max_supported_value')) {
+        if (abs($result) > Calculator::resolve()->getMaxSupportedValue()) {
             throw OutOfBoundException::fromNumbers($this, $a, $b);
         }
 

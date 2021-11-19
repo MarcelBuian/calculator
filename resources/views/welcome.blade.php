@@ -13,6 +13,12 @@
 <body>
 <div class="container">
     <h1>Calculator</h1>
+    <div>
+        Maximum allowed number (as absolute) is <label>
+            <input class="form-control" readonly value="{{ \App\Services\Calculator::resolve()->getMaxSupportedValue() }}" />
+        </label>
+    </div>
+    <br>
 
     <form class="row g-3 flex-nowrap" method="POST" action="{{route('calculate')}}">
         @csrf

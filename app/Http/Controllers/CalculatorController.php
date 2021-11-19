@@ -10,7 +10,7 @@ class CalculatorController extends Controller
 {
     public function calculate(Request $request, Calculator $calculator)
     {
-        $maxNumber = config('calculator.max_supported_value');
+        $maxNumber = $calculator->getMaxSupportedValue();
 
         $request->validate([
             'number_1' => "required|numeric|min:-{$maxNumber}|max:{$maxNumber}",
@@ -26,7 +26,7 @@ class CalculatorController extends Controller
             $result = $calculator->calculateTwoFloatNumbers($number1, $operation, $number2);
             $session = ['result' => $result];
         } catch (OperationException $exception) {
-            $session = $exception->getMessage();
+            $session = ['error' => $exception->getMessage()];
         }
 
         return back()->withInput()->with($session);

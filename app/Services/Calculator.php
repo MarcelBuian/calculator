@@ -45,4 +45,9 @@ class Calculator
 
         return $result->get();
     }
+
+    public function getMaxSupportedValue(): float
+    {
+        return config('calculator.max_supported_value');
+    }
 }
