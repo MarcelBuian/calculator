@@ -13,7 +13,7 @@ class Divider implements Operation
     }
 
     /**
-     * @throws ZeroDivisionException
+     * @throws ZeroDivisionException|\App\Exceptions\OutOfBoundException
      */
     public function calculate(Number $a, Number $b): Number
     {

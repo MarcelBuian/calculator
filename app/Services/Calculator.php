@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Models\Number;
-use Exception;
+use InvalidArgumentException;
 
 class Calculator
 {
@@ -29,9 +29,13 @@ class Calculator
             }
         }
 
-        throw new Exception("Can not find an operation with name $name.");
+        throw new InvalidArgumentException("Can not find an operation with name $name.");
     }
 
+    /**
+     * @throws \App\Exceptions\OutOfBoundException|\App\Exceptions\ZeroDivisionException
+     * @throws InvalidArgumentException
+     */
     public function calculateTwoFloatNumbers(float $number1Float, string $operationName, float $number2Float): float
     {
         $number1 = new Number($number1Float);

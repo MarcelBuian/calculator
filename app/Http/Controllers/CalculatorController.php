@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\OperationException;
+use App\Services\Calculator;
 use Illuminate\Http\Request;
 
 class CalculatorController extends Controller
 {
-    public function calculate(Request $request)
+    public function calculate(Request $request, Calculator $calculator)
     {
         $maxNumber = config('calculator.max_supported_value');
 
@@ -16,10 +18,14 @@ class CalculatorController extends Controller
             'operation' => 'required|in:plus,minus,multiply,divide',
         ]);
 
+        $number1 = $request->input('number_1');
+        $number2 = $request->input('number_2');
+        $operation = $request->input('operation');
+
         try {
-            $result = $request->get('number_1') + $request->get('number_2');
+            $result = $calculator->calculateTwoFloatNumbers($number1, $operation, $number2);
             $session = ['result' => $result];
-        } catch (\Exception $exception) {
+        } catch (OperationException $exception) {
             $session = $exception->getMessage();
         }
 
