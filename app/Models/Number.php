@@ -5,20 +5,20 @@ namespace App\Models;
 class Number
 {
     /** @var float */
-    private $number;
+    private $value;
 
-    public function __construct(float $number)
+    public function __construct(float $value)
     {
-        $this->number = $number;
+        $this->value = $value;
     }
 
     public function get(): float
     {
-        return $this->number;
+        return $this->value;
     }
 
     public function isZero(): bool
     {
-        return $this->number == 0;
+        return $this->value == 0;
     }
 }
