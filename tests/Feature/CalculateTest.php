@@ -6,7 +6,7 @@ use Tests\TestCase;
 
 class CalculateTest extends TestCase
 {
-    public function testNumber2IsRequired()
+    public function test_number_2_is_required()
     {
         $response = $this->postJson(route('calculate', [
             'number_1' => '100',
@@ -20,7 +20,7 @@ class CalculateTest extends TestCase
         ]);
     }
 
-    public function testSuccess()
+    public function test_success()
     {
         $response = $this->postJson(route('calculate', [
             'number_1' => '100',
